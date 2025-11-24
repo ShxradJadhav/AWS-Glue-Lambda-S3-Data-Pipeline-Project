@@ -8,7 +8,7 @@ This project demonstrates how I built a serverless, automated data pipeline on A
 The pipeline is fully event-driven—when a CSV file lands in S3, a Lambda function or Glue Job automatically transforms it.
 
 ---
-📌 *Project Architecture*
+📌 **Project Architecture**
 
 Workflow:
 
@@ -64,7 +64,7 @@ The preview shows the extracted fields perfectly.
 Created a Lambda function named csv-to-json which automatically starts the Glue job when a new CSV file lands in S3.
 
 ✔️ Screenshot: Lambda Code
-
+```
 import json
 import boto3
 glueClient = boto3.client('glue')
@@ -72,7 +72,7 @@ glueClient = boto3.client('glue')
 def lambda_handler(event, context):
     glueClient.start_job_run(JobName="csv-to-json")
     return "Job started"
-
+```
 This ensures event-driven automation without manual intervention.
 
 📸 Screenshot: <img width="960" height="540" alt="03" src="https://github.com/user-attachments/assets/09110850-ca59-4be6-a638-0d6e779449c7" />
